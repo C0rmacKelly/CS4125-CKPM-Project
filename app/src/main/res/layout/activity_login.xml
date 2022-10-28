@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/ckpm"
@@ -84,8 +84,5 @@
         android:layout_marginBottom="20dp"
         android:text="No Account? Register Here!"
         android:textColor="@color/black" />
-
-
-
 
 </RelativeLayout>
