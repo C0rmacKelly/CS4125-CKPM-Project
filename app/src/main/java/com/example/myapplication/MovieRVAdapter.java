@@ -1,12 +1,19 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -36,6 +43,25 @@ public class MovieRVAdapter extends RecyclerView.Adapter<MovieRVAdapter.ViewHold
         holder.movieGenreTV.setText(modal.getMovieGenre());
         holder.movieDescriptionTV.setText(modal.getMovieDescription());
         holder.moviePriceTV.setText(modal.getMoviePrice());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // on below line we are calling an intent.
+                Intent i = new Intent(context, UpdateMovies.class);
+
+                // below we are passing all our values.
+                i.putExtra("title", modal.getMovieTitle());
+                i.putExtra("duration", modal.getMovieDuration());
+                i.putExtra("genre", modal.getMovieGenre());
+                i.putExtra("description", modal.getMovieDescription());
+                i.putExtra("price", modal.getMoviePrice());
+
+                // starting our activity.
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override

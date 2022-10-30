@@ -26,6 +26,7 @@
                 android:value="" />
         </activity>
         <activity android:name="com.example.myapplication.ViewMovies" />
+        <activity android:name="com.example.myapplication.UpdateMovies" />
     </application>
 
 </manifest>

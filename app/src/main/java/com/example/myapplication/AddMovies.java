@@ -20,7 +20,7 @@ public class AddMovies extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add_movies);
 
         movieTitleEdt = findViewById(R.id.idEdtMovieTitle);
         movieDurationEdt = findViewById(R.id.idEdtMovieDuration);
@@ -54,7 +54,7 @@ public class AddMovies extends AppCompatActivity {
                 movieDurationEdt.setText("");
                 movieGenreEdt.setText("");
                 movieDescriptionEdt.setText("");
-                moviePriceEdt.setText("€");
+                moviePriceEdt.setText("");
             }
         });
 

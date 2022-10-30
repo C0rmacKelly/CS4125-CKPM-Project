@@ -84,6 +84,30 @@ public class MovieDB extends SQLiteOpenHelper {
         return movieModalArrayList;
     }
 
+    public void updateMovie(String originalMovieTitle, String movieTitle, String movieDuration,
+                             String movieGenre, String movieDescription, String moviePrice) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(TITLE_COL, movieTitle);
+        values.put(DURATION_COL, movieDuration);
+        values.put(GENRE_COL, movieGenre);
+        values.put(DESCRIPTION_COL, movieDescription);
+        values.put(PRICE_COL, moviePrice);
+
+        db.update(TABLE_NAME, values, "title=?", new String[]{originalMovieTitle});
+        db.close();
+    }
+
+    public void deleteMovie(String movieTitle) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(TABLE_NAME, "title=?", new String[]{movieTitle});
+        db.close();
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
