@@ -28,15 +28,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
         // Initializing variables
         username =(TextView) findViewById(R.id.username);
         password =(TextView) findViewById(R.id.password);
         loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         ckpm = (ImageView) findViewById(R.id.ckpm);
-
-
 
         // Pressing LOGIN button will bring user to new page
         loginbtn.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextView username, password, email;
     RadioButton radioStandard, radioSilver, radioGold;
     ImageView ckpm;
+    RadioGroup radioGroup;
     int i;
 
 
@@ -35,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
         radioStandard = (RadioButton) findViewById(R.id.radioStandard);
         radioSilver = (RadioButton) findViewById(R.id.radioSilver);
         radioGold = (RadioButton) findViewById(R.id.radioGold);
+        radioGroup = (RadioGroup) findViewById(R.id.RGroup);
 
         // Pressing REGISTER button will bring user to payment page
         registerbtn.setOnClickListener(new View.OnClickListener() {
@@ -45,8 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin") && email.getText().toString().equals("admin@ckpm.com")){
                     // Switching to register page by calling open activity method
                     openPaymentActivity();
-                } else
-                    i = 1;
+                }
             }
         });
     }
@@ -55,5 +57,25 @@ public class RegisterActivity extends AppCompatActivity {
     public void openPaymentActivity() {
         Intent intent = new Intent(this, PaymentActivity.class);
         startActivity(intent);
+    }
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioStandard:
+                if (checked)
+                    i++;
+                    break;
+            case R.id.radioSilver:
+                if (checked)
+                    i++;
+                    break;
+            case R.id.radioGold:
+                if (checked)
+                    i++;
+                    break;
+        }
     }
 }
