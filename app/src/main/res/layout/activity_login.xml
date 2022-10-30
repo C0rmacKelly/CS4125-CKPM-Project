@@ -83,6 +83,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="No Account? Register Here!"
-        android:textColor="@color/black" />
+        android:textColor="@color/black"
+        android:onClick="registerClick"
+        android:clickable="true"/>
 
 </RelativeLayout>
