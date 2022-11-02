@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 public class MovieModal {
 
+    // Initialising variables for movie title, duration, genre, description, price, id.
     private int id;
     private String movieTitle;
     private String movieDuration;
@@ -9,6 +10,7 @@ public class MovieModal {
     private String movieDescription;
     private String moviePrice;
 
+    // Creating getter and setter methods
     public int getId() {
         return id;
     }
@@ -57,6 +59,7 @@ public class MovieModal {
         this.moviePrice = moviePrice;
     }
 
+    // constructor
     public MovieModal(String movieTitle, String movieDuration, String movieGenre, String movieDescription, String moviePrice) {
         this.movieTitle = movieTitle;
         this.movieDuration = movieDuration;
