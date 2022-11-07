@@ -51,10 +51,15 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
                     // If login details provided are correct  display message to user
-                    if(check_user == true) {
-                        Toast.makeText(LoginActivity.this,"Login Successful!",Toast.LENGTH_SHORT).show();
-                    }
-                } else
+                    openViewUpdateMovieActivity();
+                }
+
+                if(check_user == true) {
+                    Toast.makeText(LoginActivity.this,"Login Successful!",Toast.LENGTH_SHORT).show();
+                    // Nothing right now
+                }
+
+                else
                     // If login details provided are incorrect display message to user
                     Toast.makeText(LoginActivity.this,"Credentials Entered Incorrect!!",Toast.LENGTH_SHORT).show();
             }
@@ -64,6 +69,11 @@ public class LoginActivity extends AppCompatActivity {
     // this class will open the new register activity which holds the register form
     public void openRegisterActivity() {
         Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    public void openViewUpdateMovieActivity() {
+        Intent intent = new Intent(this, UpdateMovies.class);
         startActivity(intent);
     }
 
