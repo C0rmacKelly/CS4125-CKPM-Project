@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     //Global Variable for Membership
     String membership_type = "";
-
+    String user_type = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 else {
 
-                    Boolean insert = DB.inputData(user,pass,mail,membership_type);
+                    Boolean insert = DB.inputData(user,user_type,pass,mail,membership_type);
 
                     if(insert == true) {
                         Toast.makeText(RegisterActivity.this,"Register Successful!",Toast.LENGTH_SHORT).show();
@@ -111,20 +111,23 @@ public class RegisterActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.radioStandard:
                 if (checked)
-                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
                     membership_type = "Standard";
+                    user_type = "Customer";
+                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
                     i++;
                     break;
             case R.id.radioSilver:
                 if (checked)
-                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
                     membership_type = "Sliver";
+                    user_type = "Customer";
+                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
                     i++;
                     break;
             case R.id.radioGold:
                 if (checked)
-                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
                     membership_type = "Gold";
+                    user_type = "Customer";
+                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
                     i++;
                     break;
         }
