@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     MaterialButton loginbtn;
     TextView username, password, registerHere;
     ImageView ckpm;
+    Login_RegisterDBHelper DB;
 
 
     @Override
@@ -34,16 +35,31 @@ public class LoginActivity extends AppCompatActivity {
         loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         ckpm = (ImageView) findViewById(R.id.ckpm);
 
+        DB = new Login_RegisterDBHelper(LoginActivity.this);
+
+
         // Pressing LOGIN button will bring user to new page
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Checking username and password
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
+
                 // Will check for user in database later
+                Boolean check_user = DB.checkUsernamePassword(user,pass);
+
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
                     // If login details provided are correct  display message to user
+                    openViewUpdateMovieActivity();
+                }
+
+                if(check_user == true) {
                     Toast.makeText(LoginActivity.this,"Login Successful!",Toast.LENGTH_SHORT).show();
-                } else
+                    // Nothing right now
+                }
+
+                else
                     // If login details provided are incorrect display message to user
                     Toast.makeText(LoginActivity.this,"Credentials Entered Incorrect!!",Toast.LENGTH_SHORT).show();
             }
@@ -53,6 +69,11 @@ public class LoginActivity extends AppCompatActivity {
     // this class will open the new register activity which holds the register form
     public void openRegisterActivity() {
         Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    public void openViewUpdateMovieActivity() {
+        Intent intent = new Intent(this, UpdateMovies.class);
         startActivity(intent);
     }
 
