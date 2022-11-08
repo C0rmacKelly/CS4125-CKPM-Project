@@ -47,6 +47,30 @@ public class MovieOptions extends AppCompatActivity {
         returnMovieButton = (Button) findViewById(R.id.return_movie);
         rateMovieButton = (Button) findViewById(R.id.rate_movie);
 
+        rentMovieButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addActivityIntent = new Intent(getBaseContext(), RentMovie.class);
+                startActivity(addActivityIntent);
+            }
+
+        });
+        returnMovieButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addActivityIntent = new Intent(getBaseContext(), ReturnMovie.class);
+                startActivity(addActivityIntent);
+            }
+
+        });
+       rateMovieButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addActivityIntent = new Intent(getBaseContext(), RateMovie.class);
+                startActivity(addActivityIntent);
+            }
+
+        });
 
     }
 }
