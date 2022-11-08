@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Movies</string>
+
+    <!--Essentials-->
+    <string name="Back">Back</string>
+    <string name="Next">Next</string>
 </resources>
