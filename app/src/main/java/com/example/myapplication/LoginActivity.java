@@ -56,7 +56,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(check_user == true) {
                     Toast.makeText(LoginActivity.this,"Login Successful!",Toast.LENGTH_SHORT).show();
-                    // Nothing right now
+                    Intent addActivityIntent = new Intent(getBaseContext(), UserView.class);
+                    startActivity(addActivityIntent);
                 }
 
                 else
