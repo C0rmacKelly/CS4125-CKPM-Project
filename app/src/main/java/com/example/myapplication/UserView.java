@@ -38,6 +38,14 @@ public class UserView extends AppCompatActivity {
             }
 
         });
+        Subscriptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addActivityIntent = new Intent(getBaseContext(), Subscriptions.class);
+                startActivity(addActivityIntent);
+            }
+
+        });
     }
 
 }
