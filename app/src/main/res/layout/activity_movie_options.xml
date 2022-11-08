@@ -54,6 +54,15 @@
                 android:text="Genre"
                 android:textColor="@color/black" />
 
+            <TextView
+                android:id="@+id/age_rating"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:text="AgeRating"
+                android:textColor="@color/black" />
+
         </LinearLayout>
 
         <TextView
