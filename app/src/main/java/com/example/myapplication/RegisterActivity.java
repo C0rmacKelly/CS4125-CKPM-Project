@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 
 public class RegisterActivity extends AppCompatActivity {
+
     // Variables declared
     MaterialButton registerbtn;
     TextView username, password, email;
@@ -30,14 +31,13 @@ public class RegisterActivity extends AppCompatActivity {
 
     //Global Variable for Membership
     String membership_type = "";
-    String user_type = "";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { // Activity first call or launched - method is responsible to create the activity.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Initializing variables
+        // Initializing variables i.e. creating and defining variables for TextViews, Image_View and RadioButtons
 
         username =(TextView) findViewById(R.id.username);
         password =(TextView) findViewById(R.id.password);
@@ -50,10 +50,11 @@ public class RegisterActivity extends AppCompatActivity {
         radioGold = (RadioButton) findViewById(R.id.radioGold);
         radioGroup = (RadioGroup) findViewById(R.id.RGroup);
 
+
+        // Creating a new DBHandler class and passing our context to it.
         DB = new Login_RegisterDBHelper(RegisterActivity.this);
 
         // Pressing REGISTER button will bring user to payment page
-
         registerbtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -68,24 +69,25 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"All Fields are Required", Toast.LENGTH_SHORT).show();
 
 
-                // Checking username and password
-                // Will check for user in database later
-
+                // Checking username and password for Admin will display admin view screen
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin") && email.getText().toString().equals("admin@ckpm.com")){
                     // Switching to register page by calling open activity method
                     openPaymentActivity();
                 }
 
+                // Else
                 else {
 
-                    Boolean insert = DB.inputData(user,user_type,pass,mail,membership_type);
+                    String user_type = "Customer";
+
+                    Boolean insert = DB.inputData(user,user_type,pass,mail,membership_type); // Provoking our InsertData function in our DBHelper class passing through user input
 
                     if(insert == true) {
-                        Toast.makeText(RegisterActivity.this,"Register Successful!",Toast.LENGTH_SHORT).show();
-                        openPaymentActivity();
+                        Toast.makeText(RegisterActivity.this,"Register Successful!",Toast.LENGTH_SHORT).show(); // Displaying message to user if they s
+                        openPaymentActivity(); // Open up paymentActivity once they completed the Registration Form
                     }
                     else {
-                        Toast.makeText(RegisterActivity.this,"Register Failed!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this,"Register Failed!",Toast.LENGTH_SHORT).show(); // Displaying message to user if they failed to Register
                     }
 
                 }
@@ -104,30 +106,26 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void onRadioButtonClicked(View view) {
 
-
-        boolean checked = ((RadioButton) view).isChecked();
+        boolean checked = ((RadioButton) view).isChecked(); // creating checked variable to see if the user has clicked on a radiobutton
 
         // Check which radio button was clicked
         switch(view.getId()) {
-            case R.id.radioStandard:
+            case R.id.radioStandard: // User clicks on the Standard Customer Type
                 if (checked)
                     membership_type = "Standard";
-                    user_type = "Customer";
-                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
                     i++;
                     break;
-            case R.id.radioSilver:
+            case R.id.radioSilver: // User clicks on the Sliver Customer Type
                 if (checked)
                     membership_type = "Sliver";
-                    user_type = "Customer";
-                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
                     i++;
                     break;
-            case R.id.radioGold:
+            case R.id.radioGold: // User clicks on the Gold Customer Type
                 if (checked)
                     membership_type = "Gold";
-                    user_type = "Customer";
-                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
                     i++;
                     break;
         }
