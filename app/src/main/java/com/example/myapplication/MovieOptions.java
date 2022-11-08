@@ -16,6 +16,9 @@ public class MovieOptions extends AppCompatActivity {
     TextView MovieName;
     TextView AgeRating;
     TextView Description;
+    TextView MovieDuration;
+    TextView MovieGenre;
+    TextView MoviePrice;
 
     //Buttons
     Button rentMovieButton;
@@ -32,9 +35,12 @@ public class MovieOptions extends AppCompatActivity {
         //Initilaising the variables created earlier
 
         //TextViews
-        MovieName = (TextView) findViewById(R.id.movie_name);
+        MovieName = (TextView) findViewById(R.id.idTVMovieTitle);
         AgeRating = (TextView) findViewById(R.id.age_rating);
-        Description = (TextView) findViewById(R.id.description);
+        Description = (TextView) findViewById(R.id.idTVMovieDescription);
+        MovieDuration =(TextView) findViewById(R.id.idTVMovieDuration);
+        MovieGenre =(TextView) findViewById(R.id.idTVMovieGenre);
+        MoviePrice =(TextView) findViewById(R.id.idTVMoviePrice);
 
         //buttons
         rentMovieButton = (Button) findViewById(R.id.rent_movie);
