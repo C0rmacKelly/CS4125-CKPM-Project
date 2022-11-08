@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView username, password, registerHere;
     ImageView ckpm;
     Login_RegisterDBHelper DB;
+    // test
 
 
     @Override
