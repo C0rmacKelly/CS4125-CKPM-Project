@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
-public class BlackFridayDecorator extends HireDecorator{
-    public BlackFridayDecorator(HireableMovie hireableMovie) {
+public class PeakSeasonDecorator extends HireDecorator {
+    public PeakSeasonDecorator(HireableMovie hireableMovie) {
         super(hireableMovie);
     }
 
@@ -22,8 +22,7 @@ public class BlackFridayDecorator extends HireDecorator{
     }
 
     public double getPrice() {
-        // calc for self: 1000*.3 =  300 = 70% discount
-        // 70% discount for black Friday deals
-        return hireableMovie.getPrice() * .30;
+        // increasing the price during peak season
+        return hireableMovie.getPrice()  + hireableMovie.getPrice() * .15;
     }
 }
