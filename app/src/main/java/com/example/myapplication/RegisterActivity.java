@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
-
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,7 +24,6 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton radioStandard, radioSilver, radioGold;
     ImageView ckpm;
     RadioGroup radioGroup;
-    int i;
     Login_RegisterDBHelper DB;
 
 
@@ -44,7 +42,6 @@ public class RegisterActivity extends AppCompatActivity {
         email =(TextView) findViewById(R.id.email);
         registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
         ckpm = (ImageView) findViewById(R.id.ckpm);
-
         radioStandard = (RadioButton) findViewById(R.id.radioStandard);
         radioSilver = (RadioButton) findViewById(R.id.radioSilver);
         radioGold = (RadioButton) findViewById(R.id.radioGold);
@@ -94,7 +91,6 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     // this class will open the new register activity which holds the register form
@@ -114,19 +110,16 @@ public class RegisterActivity extends AppCompatActivity {
                 if (checked)
                     membership_type = "Standard";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    i++;
                     break;
             case R.id.radioSilver: // User clicks on the Sliver Customer Type
                 if (checked)
                     membership_type = "Sliver";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    i++;
                     break;
             case R.id.radioGold: // User clicks on the Gold Customer Type
                 if (checked)
                     membership_type = "Gold";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    i++;
                     break;
         }
     }
