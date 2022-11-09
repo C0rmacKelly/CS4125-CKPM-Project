@@ -1,11 +1,8 @@
 package com.example.myapplication;
 
-// using this decorator to help add multiple offers
-public abstract class HireDecorator extends HireableMovie {
-    HireableMovie hireableMovie;
-
-    public HireDecorator(HireableMovie hireableMovie){
-        this.hireableMovie = hireableMovie;
+public class BlackFridayDecorator extends HireDecorator{
+    public BlackFridayDecorator(HireableMovie hireableMovie) {
+        super(hireableMovie);
     }
 
     public String getTitle() {
@@ -25,6 +22,8 @@ public abstract class HireDecorator extends HireableMovie {
     }
 
     public double getPrice() {
-        return hireableMovie.getPrice();
+        // calc for self: 1000*.3 =  300 = 70% discount
+        // 70% discount for black Friday deals
+        return hireableMovie.getPrice() * .30d;
     }
 }
