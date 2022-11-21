@@ -12,5 +12,10 @@ public class SubscriptionsOffersMain {
         standardSubscription = new BlackFridayDecorator(new PeakSeasonDecorator(new StandardSubscription()));
         System.out.println("Black Friday offer during peak season" + standardSubscription.getPrice());
 
+        HireableSubscription goldSubscription = new GoldSubscription();
+        goldSubscription = new PeakSeasonDecorator(new RegularDayDecorator(goldSubscription));
+        System.out.println("Subscribing during peak season on regular day " + goldSubscription.getPrice());
+
+
     }
 }
