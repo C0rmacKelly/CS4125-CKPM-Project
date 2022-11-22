@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView username, password, registerHere;
     ImageView ckpm;
     Login_RegisterDBHelper DB;
+    // test
 
 
     @Override
@@ -75,8 +76,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void openViewAddMovieActivity() {
         Intent intent = new Intent(this, AddMovies.class);
-        intent.putExtra("usernameAdmin", (CharSequence) username);
-        intent.putExtra("passwordAdmin", (CharSequence) password);
         startActivity(intent);
     }
 
