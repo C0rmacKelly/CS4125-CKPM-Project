@@ -20,15 +20,31 @@
             android:layout_height="225dp"
             app:srcCompat="@drawable/movieplaceholder" />
 
-        <TextView
-            android:id="@+id/idTVMovieTitle"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="3dp"
-            android:text="Movie Title"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_height="39dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/idTVMovieTitleHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:text="Movie Title"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/idTVMovieTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,8 +53,8 @@
             android:weightSum="2">
 
             <TextView
-                android:id="@+id/idTVMovieDuration"
-                android:layout_width="0dp"
+                android:id="@+id/idTVMovieDurationHeading"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
@@ -46,12 +62,20 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/idTVMovieGenre"
+                android:id="@+id/idTVMovieDuration"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="Genre"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/age_ratingHeading"
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:text="AgeRating"
                 android:textColor="@color/black" />
 
             <TextView
@@ -60,27 +84,61 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="AgeRating"
                 android:textColor="@color/black" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/idTVMovieDescription"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="25dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/idTVMovieGenreHeading"
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+
+                android:padding="3dp"
+                android:text="Genre"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/idTVMovieGenre"
+                android:layout_width="132dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/idTVMovieDescriptionHeading"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:padding="3dp"
             android:text="Description"
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/idTVMoviePrice"
+            android:id="@+id/idTVMovieDescription"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:padding="3dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/idTVMoviePriceHeading"
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:layout_weight="1"
             android:padding="3dp"
             android:text="Price"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/idTVMoviePrice"
+            android:layout_width="match_parent"
+            android:layout_height="141dp"
+            android:padding="3dp"
             android:textColor="@color/black" />
 
         <LinearLayout
