@@ -13,12 +13,9 @@ public class MovieOptions extends AppCompatActivity {
     //declaring the variables
 
     //TextViews
-    TextView MovieName;
-    TextView AgeRating;
-    TextView Description;
-    TextView MovieDuration;
-    TextView MovieGenre;
-    TextView MoviePrice;
+    private TextView MovieName, AgeRating,  Description, MovieDuration, MovieGenre, MoviePrice;
+    private String MovieNametxt,AgeRatingtxt,Descriptiontxt, MovieDurationtxt,MovieGenretxt,MoviePricetxt;
+
 
     //Buttons
     Button rentMovieButton;
@@ -47,27 +44,51 @@ public class MovieOptions extends AppCompatActivity {
         returnMovieButton = (Button) findViewById(R.id.return_movie);
         rateMovieButton = (Button) findViewById(R.id.rate_movie);
 
+        // Getting data which was passed in the adapter class.
+        MovieNametxt = getIntent().getStringExtra("title");
+        MovieDurationtxt = getIntent().getStringExtra("duration");
+        MovieGenretxt = getIntent().getStringExtra("genre");
+        Descriptiontxt = getIntent().getStringExtra("description");
+        MoviePricetxt = getIntent().getStringExtra("price");
+
+
+        // setting data to edit text of the update activity.
+
+        MovieName.setText(MovieNametxt);
+        //AgeRating.setText(MovieDurationtxt);
+        Description.setText(Descriptiontxt);
+        MovieDuration.setText(MovieDurationtxt);
+        MovieGenre.setText(MovieGenretxt);
+        MoviePrice.setText(MoviePricetxt);
+
+
+
+
+//buttons
         rentMovieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addActivityIntent = new Intent(getBaseContext(), RentMovie.class);
-                startActivity(addActivityIntent);
+                Intent i = new Intent(getBaseContext(), RentMovie.class);
+                // Passing all the values to go from this activity to another (Note: this information is being passed to the third activity, rent_activity)
+                i.putExtra("title2", MovieNametxt );
+                i.putExtra("price2", MoviePricetxt );
+                startActivity(i);
             }
 
         });
         returnMovieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addActivityIntent = new Intent(getBaseContext(), ReturnMovie.class);
-                startActivity(addActivityIntent);
+                Intent ActivityIntent = new Intent(getBaseContext(), ReturnMovie.class);
+                startActivity(ActivityIntent);
             }
 
         });
        rateMovieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addActivityIntent = new Intent(getBaseContext(), RateMovie.class);
-                startActivity(addActivityIntent);
+                Intent ActivityIntent = new Intent(getBaseContext(), RateMovie.class);
+                startActivity(ActivityIntent);
             }
 
         });
