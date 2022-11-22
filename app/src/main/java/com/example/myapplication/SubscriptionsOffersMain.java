@@ -3,6 +3,10 @@ package com.example.myapplication;
 public class SubscriptionsOffersMain {
     // testing
     public static void main(String[] args){
+
+        // testing here.
+        // need to add if statements and will use the membership variables after implementing the decorators
+        // membership variables from here will be displayed on register page after 'decorating' them
         HireableSubscription standardSubscription = new StandardSubscription();
 
         standardSubscription = new BlackFridayDecorator(standardSubscription);
