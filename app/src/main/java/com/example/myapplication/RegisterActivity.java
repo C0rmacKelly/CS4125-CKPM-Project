@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
+
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,8 +25,8 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton radioStandard, radioSilver, radioGold;
     ImageView ckpm;
     RadioGroup radioGroup;
+    int i;
     Login_RegisterDBHelper DB;
-
 
     //Global Variable for Membership
     String membership_type = "";
@@ -42,6 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         email =(TextView) findViewById(R.id.email);
         registerbtn = (MaterialButton) findViewById(R.id.registerbtn);
         ckpm = (ImageView) findViewById(R.id.ckpm);
+
         radioStandard = (RadioButton) findViewById(R.id.radioStandard);
         radioSilver = (RadioButton) findViewById(R.id.radioSilver);
         radioGold = (RadioButton) findViewById(R.id.radioGold);
@@ -62,35 +64,26 @@ public class RegisterActivity extends AppCompatActivity {
                 String mail = email.getText().toString();
 
 
-                if(TextUtils.isEmpty(user) || TextUtils.isEmpty(pass) || TextUtils.isEmpty(mail))
+                if(user.equals("") || pass.equals("") || mail.equals(""))
                     Toast.makeText(RegisterActivity.this,"All Fields are Required", Toast.LENGTH_SHORT).show();
 
-
-                // Checking username and password for Admin will display admin view screen
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin") && email.getText().toString().equals("admin@ckpm.com")){
-                    // Switching to register page by calling open activity method
-                    openPaymentActivity();
-                }
-
-                // Else
                 else {
 
-                    String user_type = "Customer";
+                    Boolean insert = DB.inputData(user,pass,mail,membership_type); // Provoking our InsertData function in our DBHelper class passing through user input
 
-                    Boolean insert = DB.inputData(user,user_type,pass,mail,membership_type); // Provoking our InsertData function in our DBHelper class passing through user input
+                    if(insert == false) {
+                        Toast.makeText(RegisterActivity.this,"Register Failed!",Toast.LENGTH_SHORT).show();
+                    }
 
-                    if(insert == true) {
-                        Toast.makeText(RegisterActivity.this,"Register Successful!",Toast.LENGTH_SHORT).show(); // Displaying message to user if they s
-                        openPaymentActivity(); // Open up paymentActivity once they completed the Registration Form
-                    }
-                    else {
-                        Toast.makeText(RegisterActivity.this,"Register Failed!",Toast.LENGTH_SHORT).show(); // Displaying message to user if they failed to Register
-                    }
+                    Toast.makeText(RegisterActivity.this,"Register Successful!",Toast.LENGTH_SHORT).show(); // Displaying message to user if they registered correctly
+                    openPaymentActivity(); // Open up paymentActivity once they completed the Registration Form
+
 
                 }
 
             }
         });
+
     }
 
     // this class will open the new register activity which holds the register form
@@ -110,17 +103,20 @@ public class RegisterActivity extends AppCompatActivity {
                 if (checked)
                     membership_type = "Standard";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    break;
+                    i++;
+                break;
             case R.id.radioSilver: // User clicks on the Sliver Customer Type
                 if (checked)
                     membership_type = "Sliver";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    break;
+                    i++;
+                break;
             case R.id.radioGold: // User clicks on the Gold Customer Type
                 if (checked)
                     membership_type = "Gold";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    break;
+                    i++;
+                break;
         }
     }
 

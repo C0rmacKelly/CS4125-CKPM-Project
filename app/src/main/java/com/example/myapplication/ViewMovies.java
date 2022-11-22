@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +30,7 @@ public class ViewMovies extends AppCompatActivity {
         movieModalArrayList = dbHandler.readMovies();
 
         // Passing the array list to the adapter class.
-        movieRVAdapter = new MovieRVAdapter(movieModalArrayList, ViewMovies.this);
+        movieRVAdapter = new MovieRVAdapter(movieModalArrayList, ViewMovies.this );
         moviesRV = findViewById(R.id.idRVMovies);
 
         // setting layout manager for the recycler view.
