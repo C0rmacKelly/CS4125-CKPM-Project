@@ -98,7 +98,8 @@
             android:hint="Standard Subscription - €5"
             android:onClick="onRadioButtonClicked"
             android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:textColorHint="@color/black"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radioSilver"
