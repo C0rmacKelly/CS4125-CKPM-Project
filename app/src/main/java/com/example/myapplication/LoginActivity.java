@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
                     // If login details provided are correct  display message to user
-                    openViewUpdateMovieActivity();
+                    openViewAddMovieActivity();
                 }
 
                 if(check_user == true) {
@@ -74,8 +74,10 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openViewUpdateMovieActivity() {
-        Intent intent = new Intent(this, UpdateMovies.class);
+    public void openViewAddMovieActivity() {
+        Intent intent = new Intent(this, AddMovies.class);
+        intent.putExtra("usernameAdmin", (CharSequence) username);
+        intent.putExtra("passwordAdmin", (CharSequence) password);
         startActivity(intent);
     }
 
