@@ -25,7 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton radioStandard, radioSilver, radioGold;
     ImageView ckpm;
     RadioGroup radioGroup;
-    int i;
     Login_RegisterDBHelper DB;
 
     //Global Variable for Membership
@@ -103,19 +102,16 @@ public class RegisterActivity extends AppCompatActivity {
                 if (checked)
                     membership_type = "Standard";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    i++;
                 break;
             case R.id.radioSilver: // User clicks on the Sliver Customer Type
                 if (checked)
                     membership_type = "Sliver";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    i++;
                 break;
             case R.id.radioGold: // User clicks on the Gold Customer Type
                 if (checked)
                     membership_type = "Gold";
                     Toast.makeText(this,"Selected Radio Button:", Toast.LENGTH_SHORT).show(); // Displaying message to user after they selected on the Radio Button
-                    i++;
                 break;
         }
     }
