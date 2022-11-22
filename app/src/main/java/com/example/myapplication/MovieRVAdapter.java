@@ -53,7 +53,6 @@ public class MovieRVAdapter extends RecyclerView.Adapter<MovieRVAdapter.ViewHold
             @Override
             public void onClick(View v) {
 
-                // Calling an intent.
                 Intent i = new Intent(context, MovieOptions.class);
 
                 // Passing all the values.
