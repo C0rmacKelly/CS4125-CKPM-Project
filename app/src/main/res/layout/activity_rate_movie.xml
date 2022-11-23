@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/rate_movieHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="102dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center"
+        android:text="Rate Movie"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/messageHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="211dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center"
+        android:text="Give a feedback message on the movie"
+        android:textStyle="bold" />
+
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/messageHeading"
+        android:layout_alignStart="@+id/messageHeading"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="10dp"
+        android:hint="type here please......."
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/ratebarHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="351dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center"
+        android:text="How well do you like the movie?"
+        android:textStyle="bold" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratebarHeading"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:progressTint="#f73451"
+        android:rating="2.5"
+        android:stepSize="0.5" />
+
+    <Button
+        android:id="@+id/rate_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratingBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:text="Rate Movie" />
+
+
+</RelativeLayout>

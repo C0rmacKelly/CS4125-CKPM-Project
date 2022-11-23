@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="3dp"
-                android:text="Movie Title"
+                android:text="Movie Title: "
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -41,8 +41,7 @@
                 android:layout_height="wrap_content"
                 android:padding="3dp"
                 android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
         </LinearLayout>
 
@@ -58,7 +57,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="Duration"
+                android:text="Duration: "
+                android:textStyle="bold"
                 android:textColor="@color/black" />
 
             <TextView
@@ -75,7 +75,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="3dp"
-                android:text="AgeRating"
+                android:text="AgeRating: "
+                android:textStyle="bold"
                 android:textColor="@color/black" />
 
             <TextView
@@ -99,7 +100,8 @@
                 android:layout_height="wrap_content"
 
                 android:padding="3dp"
-                android:text="Genre"
+                android:textStyle="bold"
+                android:text="Genre: "
                 android:textColor="@color/black" />
 
             <TextView
@@ -116,7 +118,8 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:padding="3dp"
-            android:text="Description"
+            android:text="Description: "
+            android:textStyle="bold"
             android:textColor="@color/black" />
 
         <TextView
@@ -131,7 +134,8 @@
             android:layout_width="match_parent"
             android:layout_height="36dp"
             android:padding="3dp"
-            android:text="Price"
+            android:textStyle="bold"
+            android:text="Price: "
             android:textColor="@color/black" />
 
         <TextView

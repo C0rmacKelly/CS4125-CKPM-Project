@@ -18,9 +18,9 @@ public class MovieOptions extends AppCompatActivity {
 
 
     //Buttons
-    Button rentMovieButton;
-    Button returnMovieButton;
-    Button rateMovieButton;
+    private Button rentMovieButton;
+    private Button returnMovieButton;
+    private Button rateMovieButton;
 
     //creating the activity
     protected void onCreate(Bundle savedInstanceState) {
