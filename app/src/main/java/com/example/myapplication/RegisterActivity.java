@@ -117,4 +117,3 @@ public class RegisterActivity extends AppCompatActivity {
 
 }
 
-//test-comment for fix will be removed later
