@@ -36,7 +36,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // Initializing variables i.e. creating and defining variables for TextViews, Image_View and RadioButtons
-
         username =(TextView) findViewById(R.id.username);
         password =(TextView) findViewById(R.id.password);
         email =(TextView) findViewById(R.id.email);
@@ -117,3 +116,5 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 }
+
+//test-comment for fix will be removed later
