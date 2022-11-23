@@ -116,4 +116,4 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 }
-
+//bug fix will be removed
