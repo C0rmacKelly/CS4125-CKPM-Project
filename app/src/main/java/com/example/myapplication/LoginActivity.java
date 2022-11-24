@@ -49,21 +49,27 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Will check for user in database later
                 Boolean check_user = DB.checkUsernamePassword(user,pass);
+                Boolean check_user_type = DB.checkUserTypeAdmin(user);
 
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                    // If login details provided are correct  display message to user
-                    openViewAddMovieActivity();
-                }
+                 if(check_user_type == true)
+                 {
+                     // If login details provided are correct  display message to user
+                     Toast.makeText(LoginActivity.this,"Login Successful! - Admin",Toast.LENGTH_SHORT).show();
+                     openViewAddMovieActivity();
+                 }
 
-                if(check_user == true) {
-                    Toast.makeText(LoginActivity.this,"Login Successful!",Toast.LENGTH_SHORT).show();
-                    Intent addActivityIntent = new Intent(getBaseContext(), UserView.class);
-                    startActivity(addActivityIntent);
-                }
+                 else {
+                     if(check_user == true) {
+                         Toast.makeText(LoginActivity.this,"Login Successful! - User",Toast.LENGTH_SHORT).show();
+                         Intent addActivityIntent = new Intent(getBaseContext(), UserView.class);
+                         startActivity(addActivityIntent);
+                     }
 
-                else
-                    // If login details provided are incorrect display message to user
-                    Toast.makeText(LoginActivity.this,"Credentials Entered Incorrect!!",Toast.LENGTH_SHORT).show();
+                     else
+                         // If login details provided are incorrect display message to user
+                         Toast.makeText(LoginActivity.this,"Credentials Entered Incorrect!!",Toast.LENGTH_SHORT).show();
+                 }
+
             }
         });
     }

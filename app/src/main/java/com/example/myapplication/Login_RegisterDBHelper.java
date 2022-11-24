@@ -86,5 +86,50 @@ public class Login_RegisterDBHelper extends SQLiteOpenHelper {
             return false;
     }
 
+    public Boolean checkUserTypeAdmin(String username){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and usertype='Admin'", new String[] {username});
+
+        if (cursor.getCount() > 0){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public Boolean checkUserMembershipStandard(String username){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and membership='Standard'", new String[] {username});
+
+        if (cursor.getCount() > 0){
+            return true;
+        }
+        else
+            return false;
+    }
+
+    public Boolean checkUserMembershipSliver(String username){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and membership='Sliver'", new String[] {username});
+
+        if (cursor.getCount() > 0){
+            return true;
+        }
+        else
+            return false;
+    }
+
+
+    public Boolean checkUserMembershipGold(String username){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and membership='Gold'", new String[] {username});
+
+        if (cursor.getCount() > 0){
+            return true;
+        }
+        else
+            return false;
+    }
+
 
 }
