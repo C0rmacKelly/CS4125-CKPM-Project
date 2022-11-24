@@ -33,19 +33,30 @@ public class UserView extends AppCompatActivity {
         viewMovies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addActivityIntent = new Intent(getBaseContext(), ViewMovies.class);
-                startActivity(addActivityIntent);
+                openViewMoviesActivity();
             }
 
         });
         Subscriptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addActivityIntent = new Intent(getBaseContext(), Subscriptions.class);
-                startActivity(addActivityIntent);
+                openSubscriptionActivity();
             }
 
         });
     }
 
+    public void openViewMoviesActivity() {
+        Intent intent = new Intent(this, ViewMovies.class);
+        startActivity(intent);
+    }
+
+
+    public void openSubscriptionActivity() {
+        Intent intent = new Intent(this, SubscriptionView.class);
+        startActivity(intent);
+    }
+
+
 }
+
