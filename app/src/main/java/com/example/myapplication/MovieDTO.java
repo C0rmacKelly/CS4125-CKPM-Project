@@ -1,6 +1,6 @@
 package com.example.myapplication;
 
-public class MovieModal {
+public class MovieDTO {
 
     // Initialising variables for movie title, duration, genre, description, price, id.
     private int id;
@@ -60,7 +60,7 @@ public class MovieModal {
     }
 
     // constructor
-    public MovieModal(String movieTitle, String movieDuration, String movieGenre, String movieDescription, String moviePrice) {
+    public MovieDTO(String movieTitle, String movieDuration, String movieGenre, String movieDescription, String moviePrice) {
         this.movieTitle = movieTitle;
         this.movieDuration = movieDuration;
         this.movieGenre = movieGenre;
