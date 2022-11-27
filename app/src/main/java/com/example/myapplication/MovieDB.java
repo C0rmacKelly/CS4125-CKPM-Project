@@ -67,7 +67,7 @@ public class MovieDB extends SQLiteOpenHelper {
     }
 
     // Method to read all the movies
-    public ArrayList<MovieModal> readMovies() {
+    public ArrayList<MovieDTO> readMovies() {
 
         // Creating a database to read our database
         SQLiteDatabase db = this.getReadableDatabase();
@@ -76,13 +76,13 @@ public class MovieDB extends SQLiteOpenHelper {
         Cursor cursorMovies = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
 
         // Creating a new array list.
-        ArrayList<MovieModal> movieModalArrayList = new ArrayList<>();
+        ArrayList<MovieDTO> movieDTOArrayList = new ArrayList<>();
 
         // Moving cursor to first position.
         if (cursorMovies.moveToFirst()) {
             do {
                 // Adding the data from cursor to our array list.
-                movieModalArrayList.add(new MovieModal(cursorMovies.getString(1),
+                movieDTOArrayList.add(new MovieDTO(cursorMovies.getString(1),
                         cursorMovies.getString(2),
                         cursorMovies.getString(3),
                         cursorMovies.getString(4),
@@ -93,7 +93,7 @@ public class MovieDB extends SQLiteOpenHelper {
         // Closing the cursor
         cursorMovies.close();
         // Returning array list.
-        return movieModalArrayList;
+        return movieDTOArrayList;
     }
 
     // Method for updating the movies
