@@ -23,11 +23,13 @@ public class MovieRVAdapter extends RecyclerView.Adapter<MovieRVAdapter.ViewHold
     // variable for array list and context
     private ArrayList<MovieModal> movieModalArrayList;
     private Context context;
+    //Login_RegisterDBHelper DB;
 
     // constructor
     public MovieRVAdapter(ArrayList<MovieModal> movieModalArrayList, Context context) {
         this.movieModalArrayList = movieModalArrayList;
         this.context = context;
+        //DB = new Login_RegisterDBHelper(MovieRVAdapter.this);
     }
 
     @NonNull
@@ -53,7 +55,7 @@ public class MovieRVAdapter extends RecyclerView.Adapter<MovieRVAdapter.ViewHold
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(context, MovieOptions.class);
+                Intent i = new Intent(context, UpdateMovies.class);
 
                 // Passing all the values.
                 i.putExtra("title", modal.getMovieTitle());
