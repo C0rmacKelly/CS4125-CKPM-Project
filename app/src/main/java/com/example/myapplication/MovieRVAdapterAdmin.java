@@ -15,11 +15,11 @@ import java.util.ArrayList;
 public class MovieRVAdapterAdmin extends RecyclerView.Adapter<MovieRVAdapterAdmin.ViewHolder> {
 
     // variable for array list and context
-    private ArrayList<MovieModal> movieModalArrayList;
+    private ArrayList<MovieDTO> movieModalArrayList;
     private Context context;
 
     // constructor
-    public MovieRVAdapterAdmin(ArrayList<MovieModal> movieModalArrayList, Context context) {
+    public MovieRVAdapterAdmin(ArrayList<MovieDTO> movieModalArrayList, Context context) {
         this.movieModalArrayList = movieModalArrayList;
         this.context = context;
     }
@@ -35,7 +35,7 @@ public class MovieRVAdapterAdmin extends RecyclerView.Adapter<MovieRVAdapterAdmi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Setting data to the views of recycler view item.
-        MovieModal modal = movieModalArrayList.get(position);
+        MovieDTO modal = movieModalArrayList.get(position);
         holder.movieTitleTV.setText(modal.getMovieTitle());
         holder.movieDurationTV.setText(modal.getMovieDuration());
         holder.movieGenreTV.setText(modal.getMovieGenre());

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ViewMoviesAdmin extends AppCompatActivity {
 
     // creating variables for the array list, dbhandler, adapter and recycler view.
-    private ArrayList<MovieModal> movieModalArrayList;
+    private ArrayList<MovieDTO> movieModalArrayList;
     private MovieDB dbHandler;
     private MovieRVAdapterAdmin movieRVAdapterAdmin;
     private RecyclerView moviesRV;
