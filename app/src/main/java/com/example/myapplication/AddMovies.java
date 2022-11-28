@@ -71,7 +71,7 @@ public class AddMovies extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // opening a new activity via a intent.
-                Intent i = new Intent(AddMovies.this, ViewMovies.class);
+                Intent i = new Intent(AddMovies.this, ViewMoviesAdmin.class);
                 startActivity(i);
             }
         });
