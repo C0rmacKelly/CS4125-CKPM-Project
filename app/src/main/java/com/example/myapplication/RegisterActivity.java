@@ -61,13 +61,12 @@ public class RegisterActivity extends AppCompatActivity {
                 String pass = password.getText().toString();
                 String mail = email.getText().toString();
 
+                Boolean insert = DB.inputData(user,pass,mail,membership_type); // Provoking our InsertData function in our DBHelper class passing through user input
 
                 if(user.equals("") || pass.equals("") || mail.equals(""))
                     Toast.makeText(RegisterActivity.this,"All Fields are Required", Toast.LENGTH_SHORT).show();
 
                 else {
-
-                    Boolean insert = DB.inputData(user,pass,mail,membership_type); // Provoking our InsertData function in our DBHelper class passing through user input
 
                     if(insert == false) {
                         Toast.makeText(RegisterActivity.this,"Register Failed!",Toast.LENGTH_SHORT).show();

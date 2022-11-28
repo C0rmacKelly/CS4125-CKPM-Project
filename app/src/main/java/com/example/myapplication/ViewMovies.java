@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 public class ViewMovies extends AppCompatActivity {
 
     // creating variables for the array list, dbhandler, adapter and recycler view.
-    private ArrayList<MovieModal> movieModalArrayList;
+    private ArrayList<MovieDTO> movieDTOArrayList;
     private MovieDB dbHandler;
     private MovieRVAdapter movieRVAdapter;
     private RecyclerView moviesRV;
@@ -23,14 +22,14 @@ public class ViewMovies extends AppCompatActivity {
         setContentView(R.layout.activity_view_movies);
 
         // initialising all variables.
-        movieModalArrayList = new ArrayList<>();
+        movieDTOArrayList = new ArrayList<>();
         dbHandler = new MovieDB(ViewMovies.this);
 
         // getting the movie array list from db handler class.
-        movieModalArrayList = dbHandler.readMovies();
+        movieDTOArrayList = dbHandler.readMovies();
 
         // Passing the array list to the adapter class.
-        movieRVAdapter = new MovieRVAdapter(movieModalArrayList, ViewMovies.this );
+        movieRVAdapter = new MovieRVAdapter(movieDTOArrayList, ViewMovies.this );
         moviesRV = findViewById(R.id.idRVMovies);
 
         // setting layout manager for the recycler view.

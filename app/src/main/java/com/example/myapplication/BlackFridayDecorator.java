@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 public class BlackFridayDecorator extends SubscribeDecorator {
+
     public BlackFridayDecorator(HireableSubscription hireableSubscription) {
         super(hireableSubscription);
     }
