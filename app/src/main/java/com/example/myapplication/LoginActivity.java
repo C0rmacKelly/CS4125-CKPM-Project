@@ -50,11 +50,6 @@ public class LoginActivity extends AppCompatActivity {
                 // Will check for user in database later
                 Boolean check_user = DB.checkUsernamePassword(user,pass);
 
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                    // If login details provided are correct  display message to user
-                    openViewAddMovieActivity();
-                }
-
                 if(check_user == true) {
                     Toast.makeText(LoginActivity.this,"Login Successful!",Toast.LENGTH_SHORT).show();
                     Intent addActivityIntent = new Intent(getBaseContext(), UserView.class);
@@ -73,14 +68,16 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
-
-    public void openViewAddMovieActivity() {
-        Intent intent = new Intent(this, AddMovies.class);
+    public void openAdminLoginActivity() {
+        Intent intent = new Intent(this, AdminLoginActivity.class);
         startActivity(intent);
     }
 
     // Bring user to register page after clicking 'register here'
     public void registerClick (View view) {
         openRegisterActivity();
+    }
+    public void AdminClick (View view) {
+        openAdminLoginActivity();
     }
 }
