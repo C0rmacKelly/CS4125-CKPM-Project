@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -71,7 +70,7 @@ public class AddMovies extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // opening a new activity via a intent.
-                Intent i = new Intent(AddMovies.this, ViewMoviesAdmin.class);
+                Intent i = new Intent(AddMovies.this, ViewMovies.class);
                 startActivity(i);
             }
         });

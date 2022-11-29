@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ViewMoviesAdmin extends AppCompatActivity {
+public class ViewMoviesUser extends AppCompatActivity {
 
     // creating variables for the array list, dbhandler, adapter and recycler view.
-    private ArrayList<MovieDTO> movieModalArrayList;
+    private ArrayList<MovieDTO> movieDTOArrayList;
     private MovieDB dbHandler;
-    private MovieRVAdapterAdmin movieRVAdapterAdmin;
+    private MovieRVAdapterUser movieRVAdapterUser;
     private RecyclerView moviesRV;
 
     @Override
@@ -22,21 +22,21 @@ public class ViewMoviesAdmin extends AppCompatActivity {
         setContentView(R.layout.activity_admin_view_movies);
 
         // initialising all variables.
-        movieModalArrayList = new ArrayList<>();
-        dbHandler = new MovieDB(ViewMoviesAdmin.this);
+        movieDTOArrayList = new ArrayList<>();
+        dbHandler = new MovieDB(ViewMoviesUser.this);
 
         // getting the movie array list from db handler class.
-        movieModalArrayList = dbHandler.readMovies();
+        movieDTOArrayList = dbHandler.readMovies();
 
         // Passing the array list to the adapter class.
-        movieRVAdapterAdmin = new MovieRVAdapterAdmin(movieModalArrayList, ViewMoviesAdmin.this );
+        movieRVAdapterUser = new MovieRVAdapterUser(movieDTOArrayList, ViewMoviesUser.this );
         moviesRV = findViewById(R.id.idRVMovies);
 
         // setting layout manager for the recycler view.
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ViewMoviesAdmin.this, RecyclerView.VERTICAL, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ViewMoviesUser.this, RecyclerView.VERTICAL, false);
         moviesRV.setLayoutManager(linearLayoutManager);
 
         // setting adapter to recycler view.
-        moviesRV.setAdapter(movieRVAdapterAdmin);
+        moviesRV.setAdapter(movieRVAdapterUser);
     }
 }

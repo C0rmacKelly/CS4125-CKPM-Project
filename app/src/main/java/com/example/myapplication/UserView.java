@@ -47,7 +47,7 @@ public class UserView extends AppCompatActivity {
     }
 
     public void openViewMoviesActivity() {
-        Intent intent = new Intent(this, ViewMovies.class);
+        Intent intent = new Intent(this, ViewMoviesUser.class);
         startActivity(intent);
     }
 
