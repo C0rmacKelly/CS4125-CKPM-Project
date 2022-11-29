@@ -170,16 +170,7 @@
                 android:layout_weight="1"
                 android:text="Rate Movie" />
 
-            <Button
-                android:id="@+id/return_movie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
-                android:text="Return Movie" />
+
         </LinearLayout>
     </LinearLayout>
 

@@ -41,7 +41,6 @@ public class MovieOptions extends AppCompatActivity {
 
         //buttons
         rentMovieButton = (Button) findViewById(R.id.rent_movie);
-        returnMovieButton = (Button) findViewById(R.id.return_movie);
         rateMovieButton = (Button) findViewById(R.id.rate_movie);
 
         // Getting data which was passed in the adapter class.
@@ -76,14 +75,7 @@ public class MovieOptions extends AppCompatActivity {
             }
 
         });
-        returnMovieButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ActivityIntent = new Intent(getBaseContext(), ReturnMovie.class);
-                startActivity(ActivityIntent);
-            }
 
-        });
        rateMovieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -29,6 +29,11 @@ public class MovieDB extends SQLiteOpenHelper {
 
     private static final String PRICE_COL = "price";
 
+    private static final String RENT_DURATION = "rent_duration";
+
+    private static final String TOTAL_COST_COL = "total_cost";
+
+
 
     public MovieDB(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -43,7 +48,9 @@ public class MovieDB extends SQLiteOpenHelper {
                 + DURATION_COL + " TEXT,"
                 + GENRE_COL + " TEXT,"
                 + DESCRIPTION_COL + " TEXT,"
-                + PRICE_COL + " TEXT)";
+                + PRICE_COL + " TEXT,"
+                + RENT_DURATION + " TEXT,"
+                + TOTAL_COST_COL + " TEXT)";
 
         // execute query
         db.execSQL(query);
@@ -114,6 +121,21 @@ public class MovieDB extends SQLiteOpenHelper {
         // Calling an update method to update the database and passing the values.
         // Comparing it with title of the movie which is stored in original title variable.
         db.update(TABLE_NAME, values, "title=?", new String[]{originalMovieTitle});
+        db.close();
+    }
+    //Method for adding the rental details to the database
+    public void updateDBwithRentalDetails(String rental_duration, String total_cost_rental) {
+
+        // calling a method to get writable database.
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // Passing all values along with its key and value pair.
+        values.put(RENT_DURATION, rental_duration);
+        values.put(TOTAL_COST_COL, total_cost_rental);
+        // Calling an update method to update the database and passing the values.
+        // Comparing it with title of the movie which is stored in original title variable.
+        db.insert(TABLE_NAME, null, values);
         db.close();
     }
 

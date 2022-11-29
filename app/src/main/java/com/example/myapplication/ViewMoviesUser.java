@@ -19,7 +19,7 @@ public class ViewMoviesUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_view_movies);
+        setContentView(R.layout.activity_view_movies);
 
         // initialising all variables.
         movieDTOArrayList = new ArrayList<>();
