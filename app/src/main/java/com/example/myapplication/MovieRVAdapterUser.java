@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MovieRVAdapterAdmin extends RecyclerView.Adapter<MovieRVAdapterAdmin.ViewHolder> {
+public class MovieRVAdapterUser extends RecyclerView.Adapter<MovieRVAdapterUser.ViewHolder> {
 
     // variable for array list and context
-    private ArrayList<MovieDTO> movieModalArrayList;
+    private ArrayList<MovieDTO> movieDTOArrayList;
     private Context context;
 
     // constructor
-    public MovieRVAdapterAdmin(ArrayList<MovieDTO> movieModalArrayList, Context context) {
-        this.movieModalArrayList = movieModalArrayList;
+    public MovieRVAdapterUser(ArrayList<MovieDTO> movieModalArrayList, Context context) {
+        this.movieDTOArrayList = movieModalArrayList;
         this.context = context;
     }
 
@@ -35,26 +35,26 @@ public class MovieRVAdapterAdmin extends RecyclerView.Adapter<MovieRVAdapterAdmi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Setting data to the views of recycler view item.
-        MovieDTO modal = movieModalArrayList.get(position);
-        holder.movieTitleTV.setText(modal.getMovieTitle());
-        holder.movieDurationTV.setText(modal.getMovieDuration());
-        holder.movieGenreTV.setText(modal.getMovieGenre());
-        holder.movieDescriptionTV.setText(modal.getMovieDescription());
-        holder.moviePriceTV.setText(modal.getMoviePrice());
+        MovieDTO DTO = movieDTOArrayList.get(position);
+        holder.movieTitleTV.setText(DTO.getMovieTitle());
+        holder.movieDurationTV.setText(DTO.getMovieDuration());
+        holder.movieGenreTV.setText(DTO.getMovieGenre());
+        holder.movieDescriptionTV.setText(DTO.getMovieDescription());
+        holder.moviePriceTV.setText(DTO.getMoviePrice());
 
         // Add on click listener to the recycler view item.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(context, UpdateMovies.class);
+                Intent i = new Intent(context, MovieOptions.class);
 
                 // Passing all the values.
-                i.putExtra("title", modal.getMovieTitle());
-                i.putExtra("duration", modal.getMovieDuration());
-                i.putExtra("genre", modal.getMovieGenre());
-                i.putExtra("description", modal.getMovieDescription());
-                i.putExtra("price", modal.getMoviePrice());
+                i.putExtra("title", DTO.getMovieTitle());
+                i.putExtra("duration", DTO.getMovieDuration());
+                i.putExtra("genre", DTO.getMovieGenre());
+                i.putExtra("description", DTO.getMovieDescription());
+                i.putExtra("price", DTO.getMoviePrice());
 
                 // starting the activity.
                 context.startActivity(i);
@@ -65,7 +65,7 @@ public class MovieRVAdapterAdmin extends RecyclerView.Adapter<MovieRVAdapterAdmi
     @Override
     public int getItemCount() {
         // returning the size of the array list
-        return movieModalArrayList.size();
+        return movieDTOArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

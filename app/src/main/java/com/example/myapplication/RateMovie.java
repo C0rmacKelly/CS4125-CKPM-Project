@@ -86,7 +86,7 @@ public class RateMovie extends AppCompatActivity {
         RateMovieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getBaseContext(), ViewMovies.class);
+                Intent i = new Intent(getBaseContext(), ViewMoviesUser.class);
                 Toast.makeText(RateMovie.this,String.valueOf(Rating), Toast.LENGTH_SHORT).show();
                 startActivity(i);
             }
