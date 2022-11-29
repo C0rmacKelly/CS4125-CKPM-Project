@@ -68,13 +68,13 @@ public class RentMovie extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Calling the update movie method and passing all the edit text values.
-                //dbHandler.updateMovie(movieTitle, movieTitleEdt.getText().toString(), movieDurationEdt.getText().toString(), movieGenreEdt.getText().toString(), movieDescriptionEdt.getText().toString(), moviePriceEdt.getText().toString());
+                dbHandler.updateDBwithRentalDetails(RentDurationEdt.getText().toString(), total_costtxt);
 
-                // displaying a toast message that the movie has been updated.
-                //Toast.makeText(UpdateMovies.this, "Movie Updated..", Toast.LENGTH_SHORT).show();
+                // displaying a toast message that the rental has been completed
+                Toast.makeText(RentMovie.this, "Movie Has been rented..", Toast.LENGTH_SHORT).show();
 
-                Intent addActivityIntent = new Intent(getBaseContext(), PaymentActivity.class);
-                startActivity(addActivityIntent);
+                Intent Activity = new Intent( RentMovie.this, PaymentActivity.class);
+                startActivity(Activity);
             }
 
         });
