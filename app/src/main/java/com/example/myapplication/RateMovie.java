@@ -29,6 +29,11 @@ public class RateMovie extends AppCompatActivity {
 
     private Button RateMovieButton;
 
+    //String
+    private String Ratingtxt;
+
+    //MovieDB
+    private MovieDB dbHandler;
 
     //creating the activity
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,8 @@ public class RateMovie extends AppCompatActivity {
         MessageHeading = (TextView) findViewById(R.id.messageHeading);
         RateBarHeading = (TextView) findViewById(R.id.ratebarHeading);
 
+        // initialising the dbhandler class.
+        dbHandler = new MovieDB(RateMovie.this );
         //EditText
         MessageEdt = (EditText) findViewById(R.id.message);
 
@@ -52,6 +59,7 @@ public class RateMovie extends AppCompatActivity {
 
         //buttons
         RateMovieButton = (Button) findViewById(R.id.rate_button);
+
 
 
         ratingStars.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
@@ -82,10 +90,14 @@ public class RateMovie extends AppCompatActivity {
             }
         });
 
+        Ratingtxt = String.valueOf(Rating);
 //buttons
         RateMovieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Calling the update rental method and passing all the edit text values.
+                dbHandler.updateDBwithRentalDetails(MessageEdt.getText().toString(), Ratingtxt);
+
                 Intent i = new Intent(getBaseContext(), ViewMoviesUser.class);
                 Toast.makeText(RateMovie.this,String.valueOf(Rating), Toast.LENGTH_SHORT).show();
                 startActivity(i);

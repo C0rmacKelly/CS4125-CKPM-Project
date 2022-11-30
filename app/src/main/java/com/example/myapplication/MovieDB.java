@@ -33,6 +33,12 @@ public class MovieDB extends SQLiteOpenHelper {
 
     private static final String TOTAL_COST_COL = "total_cost";
 
+    private static final String RATING_MESSAGE_FEEDBACK_COL = "rating_message_feedback";
+
+    private static final String RATING_SCORE_COL = "rating_score";
+
+
+
 
 
     public MovieDB(Context context) {
@@ -50,7 +56,9 @@ public class MovieDB extends SQLiteOpenHelper {
                 + DESCRIPTION_COL + " TEXT,"
                 + PRICE_COL + " TEXT,"
                 + RENT_DURATION + " TEXT,"
-                + TOTAL_COST_COL + " TEXT)";
+                + TOTAL_COST_COL + " TEXT,"
+                + RATING_MESSAGE_FEEDBACK_COL + " TEXT,"
+                + RATING_SCORE_COL + " TEXT)";
 
         // execute query
         db.execSQL(query);
@@ -133,6 +141,22 @@ public class MovieDB extends SQLiteOpenHelper {
         // Passing all values along with its key and value pair.
         values.put(RENT_DURATION, rental_duration);
         values.put(TOTAL_COST_COL, total_cost_rental);
+        // Calling an update method to update the database and passing the values.
+        // Comparing it with title of the movie which is stored in original title variable.
+        db.insert(TABLE_NAME, null, values);
+        db.close();
+    }
+
+    //Method for adding the rateMessage and RateScore to the database
+    public void updateDBwithRateDetails(String rateMessage, String rateScore) {
+
+        // calling a method to get writable database.
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        // Passing all values along with its key and value pair.
+        values.put(RATING_MESSAGE_FEEDBACK_COL, rateMessage);
+        values.put(RATING_SCORE_COL, rateScore);
         // Calling an update method to update the database and passing the values.
         // Comparing it with title of the movie which is stored in original title variable.
         db.insert(TABLE_NAME, null, values);
