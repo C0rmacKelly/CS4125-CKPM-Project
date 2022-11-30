@@ -26,7 +26,7 @@ public class RentMovie extends AppCompatActivity {
     //Buttons
     private Button checkoutbutton;
 
-    //Library
+    //MovieDB
     private MovieDB dbHandler;
     //creating the activity
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class RentMovie extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Calling the update movie method and passing all the edit text values.
+                // Calling the update rental method and passing all the edit text values.
                 dbHandler.updateDBwithRentalDetails(RentDurationEdt.getText().toString(), total_costtxt);
 
                 // displaying a toast message that the rental has been completed
