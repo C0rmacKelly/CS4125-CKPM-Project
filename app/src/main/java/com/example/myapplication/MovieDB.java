@@ -142,7 +142,6 @@ public class MovieDB extends SQLiteOpenHelper {
         values.put(RENT_DURATION, rental_duration);
         values.put(TOTAL_COST_COL, total_cost_rental);
         // Calling an update method to update the database and passing the values.
-        // Comparing it with title of the movie which is stored in original title variable.
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
@@ -158,7 +157,6 @@ public class MovieDB extends SQLiteOpenHelper {
         values.put(RATING_MESSAGE_FEEDBACK_COL, rateMessage);
         values.put(RATING_SCORE_COL, rateScore);
         // Calling an update method to update the database and passing the values.
-        // Comparing it with title of the movie which is stored in original title variable.
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
