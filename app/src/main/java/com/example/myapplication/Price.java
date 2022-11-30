@@ -3,30 +3,30 @@ package com.example.myapplication;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 abstract class Price{
-    abstract double getCharge(int daysRented);
+    protected double price;
+    abstract void getCharge();
+
+    public void calculatePrice(int daysRented){
+        System.out.println(daysRented*price);
+    }
 }
 
 class RegularPrice extends Price{
-    double getCharge(int daysRented) {
-        double result = 2;
-        if (daysRented > 2)
-            result += (daysRented - 2) * 1.5;
-        return result;
+    public void getCharge(){
+        price=3.50;
     }
 }
 class ChildrensPrice extends Price{
-    double getCharge(int daysRented) {
-        double result = 1.5;
-        if (daysRented > 3)
-            result += (daysRented - 3) * 1.5;
-        return result;
+    public void getCharge(){
+        price=5;
     }
 }
 class NewReleasePrice extends Price{
-    double getCharge(int daysRented) {
-        return daysRented * 3;
+    public void getCharge(){
+        price=7;
     }
 }
 
@@ -49,22 +49,23 @@ class GetPriceFactory{
 }
 
 class GeneratePrice{
-    public static void main(String args[])throws IOException {
+    public static void main(String args[]) {
         GetPriceFactory priceFactory = new GetPriceFactory();
 
         System.out.print("Enter the name of type of price for which the bill will be generated: ");
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        Scanner priceTypeInput = new Scanner(System.in);
 
-        String priceName=br.readLine();
-        System.out.print("Enter the quantity for which the bill will be calculated: ");
-        int units=Integer.parseInt(br.readLine());
+        String priceName= priceTypeInput.next();
+        System.out.print("Enter the number of days for which you are renting the movie for: ");
+        Scanner daysRentInput = new Scanner(System.in);
+
+        int daysRented=Integer.parseInt(daysRentInput.next());
 
         Price p = priceFactory.getPrice(priceName);
 
-        System.out.print("Movie price amount for "+priceName+" of  "+units+" units is: ");
+        System.out.print("Movie price amount for "+priceName+" of  "+daysRented+" units is: ");
 
         p.getCharge();
-
-        p.calculateBill(units);
+        p.calculatePrice(daysRented);
     }
 }
