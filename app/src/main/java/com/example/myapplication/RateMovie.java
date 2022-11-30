@@ -96,7 +96,7 @@ public class RateMovie extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Calling the update rental method and passing all the edit text values.
-                dbHandler.updateDBwithRentalDetails(MessageEdt.getText().toString(), Ratingtxt);
+                dbHandler.updateDBwithRateDetails(MessageEdt.getText().toString(), Ratingtxt);
 
                 Intent i = new Intent(getBaseContext(), ViewMoviesUser.class);
                 Toast.makeText(RateMovie.this,String.valueOf(Rating), Toast.LENGTH_SHORT).show();
