@@ -88,6 +88,8 @@ public class Login_RegisterDBHelper extends SQLiteOpenHelper {
             return false;
     }
 
+
+    // Allow Admins to User Info
     public ArrayList<UserDTO> readUsers() {
 
         // Creating a database to read our database
