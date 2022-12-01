@@ -40,7 +40,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
 
-                // Will check for user in database later
+
                 Boolean check_user = db.checkUserAdmin(user,pass);
 
                 if(check_user == true) {
