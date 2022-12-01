@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class UserView extends AppCompatActivity {
     //declaring the variables
@@ -14,7 +17,7 @@ public class UserView extends AppCompatActivity {
     //Buttons
     Button viewMovies;
     Button Subscriptions;
-
+    Button customerView;
 
     //creating the activity
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +25,6 @@ public class UserView extends AppCompatActivity {
 
         //setting the content view to layout activity_booking xml
         setContentView(R.layout.activity_user_view);
-
-        //Initilaising the variables created earlier
 
         //buttons
         viewMovies = (Button) findViewById(R.id.view_movie);
@@ -37,6 +38,7 @@ public class UserView extends AppCompatActivity {
             }
 
         });
+
         Subscriptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

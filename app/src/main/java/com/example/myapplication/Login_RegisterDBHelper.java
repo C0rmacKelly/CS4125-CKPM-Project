@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+
 public class Login_RegisterDBHelper extends SQLiteOpenHelper {
 
     private static final String DBName = "login-Register.db";
@@ -86,31 +88,9 @@ public class Login_RegisterDBHelper extends SQLiteOpenHelper {
             return false;
     }
 
-    public Boolean checkUserTypeAdmin(String username){
+    public Boolean checkUserAdmin(String username, String password){
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and usertype='Admin'", new String[] {username});
-
-        if (cursor.getCount() > 0){
-            return true;
-        }
-        else
-            return false;
-    }
-
-    public Boolean checkUserMembershipStandard(String username){
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and membership='Standard'", new String[] {username});
-
-        if (cursor.getCount() > 0){
-            return true;
-        }
-        else
-            return false;
-    }
-
-    public Boolean checkUserMembershipSliver(String username){
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and membership='Sliver'", new String[] {username});
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and password=? and usertype='Admin'", new String[] {username,password});
 
         if (cursor.getCount() > 0){
             return true;
@@ -120,15 +100,34 @@ public class Login_RegisterDBHelper extends SQLiteOpenHelper {
     }
 
 
-    public Boolean checkUserMembershipGold(String username){
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and membership='Gold'", new String[] {username});
+    // Allow Admins to User Info
+    public ArrayList<UserDTO> readUsers() {
 
-        if (cursor.getCount() > 0){
-            return true;
+        // Creating a database to read our database
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Creating a cursor with query to read data from database.
+        Cursor cursorUsers = db.rawQuery("SELECT * FROM " + Table_Name, null);
+
+        // Creating a new array list.
+        ArrayList<UserDTO> userDTOArrayList = new ArrayList<>();
+
+        // Moving cursor to first position.
+        if (cursorUsers.moveToFirst()) {
+            do {
+                // Adding the data from cursor to our array list.
+                userDTOArrayList.add(new UserDTO(cursorUsers.getString(1),
+                        cursorUsers.getString(2),
+                        cursorUsers.getString(3),
+                        cursorUsers.getString(4),
+                        cursorUsers.getString(5)));
+            } while (cursorUsers.moveToNext());
+            // Moving cursor to next.
         }
-        else
-            return false;
+        // Closing the cursor
+        cursorUsers.close();
+        // Returning array list.
+        return userDTOArrayList;
     }
 
 
