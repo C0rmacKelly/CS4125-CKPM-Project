@@ -8,12 +8,17 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class UserView extends AppCompatActivity {
     //declaring the variables
 
     //Buttons
     Button viewMovies;
     Button Subscriptions;
+
+    private ArrayList<UserDTO> userDTOArrayList;
+    private Login_RegisterDBHelper dbHelper;
 
 
     //creating the activity
@@ -22,8 +27,6 @@ public class UserView extends AppCompatActivity {
 
         //setting the content view to layout activity_booking xml
         setContentView(R.layout.activity_user_view);
-
-        //Initilaising the variables created earlier
 
         //buttons
         viewMovies = (Button) findViewById(R.id.view_movie);
