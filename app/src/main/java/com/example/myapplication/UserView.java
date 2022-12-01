@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,10 +17,7 @@ public class UserView extends AppCompatActivity {
     //Buttons
     Button viewMovies;
     Button Subscriptions;
-
-    private ArrayList<UserDTO> userDTOArrayList;
-    private Login_RegisterDBHelper dbHelper;
-
+    Button customerView;
 
     //creating the activity
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +38,7 @@ public class UserView extends AppCompatActivity {
             }
 
         });
+
         Subscriptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

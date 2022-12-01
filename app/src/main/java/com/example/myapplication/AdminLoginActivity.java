@@ -16,6 +16,7 @@ public class AdminLoginActivity extends AppCompatActivity {
     MaterialButton loginbtn;
     TextView username, password;
     ImageView ckpm;
+    Login_RegisterDBHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +29,28 @@ public class AdminLoginActivity extends AppCompatActivity {
         loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         ckpm = (ImageView) findViewById(R.id.ckpm);
 
+
+        db = new Login_RegisterDBHelper(AdminLoginActivity.this);
+
         // Pressing LOGIN button will bring user to new page
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                    // If login details provided are correct  display message to user
+                // Checking username and password
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
+
+                // Will check for user in database later
+                Boolean check_user = db.checkUserAdmin(user,pass);
+
+                if(check_user == true) {
+                    Toast.makeText(AdminLoginActivity.this,"Login Successful! - Admin Login",Toast.LENGTH_SHORT).show();
                     openViewAddMovieActivity();
                 }
+
                 else
                     // If login details provided are incorrect display message to user
-                    Toast.makeText(AdminLoginActivity.this,"Credentials Entered Incorrect!!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminLoginActivity.this,"Credentials Entered Incorrect!! - You are not a Admin",Toast.LENGTH_SHORT).show();
             }
         });
     }

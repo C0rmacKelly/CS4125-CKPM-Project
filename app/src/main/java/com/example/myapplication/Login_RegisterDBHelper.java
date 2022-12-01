@@ -88,6 +88,17 @@ public class Login_RegisterDBHelper extends SQLiteOpenHelper {
             return false;
     }
 
+    public Boolean checkUserAdmin(String username, String password){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from users where username=? and password=? and usertype='Admin'", new String[] {username,password});
+
+        if (cursor.getCount() > 0){
+            return true;
+        }
+        else
+            return false;
+    }
+
 
     // Allow Admins to User Info
     public ArrayList<UserDTO> readUsers() {
