@@ -43,14 +43,13 @@ public class AdminLoginActivity extends AppCompatActivity {
 
                 Boolean check_user = db.checkUserAdmin(user,pass);
 
-                if(check_user == true) {
-                    Toast.makeText(AdminLoginActivity.this,"Login Successful! - Admin Login",Toast.LENGTH_SHORT).show();
+                if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
+                    // If login details provided are correct  display message to user
                     openViewAddMovieActivity();
                 }
-
                 else
                     // If login details provided are incorrect display message to user
-                    Toast.makeText(AdminLoginActivity.this,"Credentials Entered Incorrect!! - You are not a Admin",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminLoginActivity.this,"Credentials Entered Incorrect!!",Toast.LENGTH_SHORT).show();
             }
         });
     }

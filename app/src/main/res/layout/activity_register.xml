@@ -96,7 +96,7 @@
             android:layout_marginBottom="10dp"
             android:checked="true"
             android:drawablePadding="20dp"
-            android:hint="Standard Subscription"
+            android:hint="Standard Subscription - €5"
             android:onClick="onRadioButtonClicked"
             android:textColor="@color/black"
             android:textColorHint="@color/black" />
