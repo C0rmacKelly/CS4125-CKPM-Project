@@ -44,24 +44,6 @@ public class UserViewAdapter extends RecyclerView.Adapter<UserViewAdapter.ViewHo
         holder.user_Password.setText(dto.getUserPassword());
         holder.user_MembershipType.setText(dto.getUserMembershipType());
 
-        // Add on click listener to the recycler view item.
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(context, MovieOptions.class);
-
-                // Passing all the values.
-                i.putExtra("Name", dto.getUserName());
-                i.putExtra("Type", dto.getUserType());
-                i.putExtra("Email", dto.getUserEmail());
-                i.putExtra("Password", dto.getUserPassword());
-                i.putExtra("Membership", dto.getUserMembershipType());
-
-                // starting the activity.
-                context.startActivity(i);
-            }
-        });
 
     }
 
