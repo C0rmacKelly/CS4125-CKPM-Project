@@ -28,7 +28,7 @@ public class ViewCustomerInfo extends AppCompatActivity {
         userDTOArrayList = dbHelper.readUsers();
 
         // Passing the array list to the adapter class.
-        userViewAdapter = new UserViewAdapter(userDTOArrayList);
+        userViewAdapter = new UserViewAdapter(userDTOArrayList,ViewCustomerInfo.this );
         recyclerView = findViewById(R.id.idCustomersInfo);
 
         // setting layout manager for the recycler view.
