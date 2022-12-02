@@ -2,6 +2,11 @@
 
 This repository contains all the code for the CS4125 final project and CKPM are the initials for the team members. For Good GitHub Practice we've used Pull Requests as the main source of pushing into the Master branch using remote branches. 
 
+## Admin credentials
+Username: admin 
+
+Password: admin
+
 ## Pull Requests (PRs)
 
 To navigate to the Pull Requests and see every team member contributions in regards to commits etc. Follow the steps below:
