@@ -99,7 +99,6 @@ public class AddMovies extends AppCompatActivity implements AdapterView.OnItemSe
                 // opening a new activity via a intent.
                 Intent i = new Intent(AddMovies.this, ViewCustomerInfo.class);
                 startActivity(i);
-                Toast.makeText(AddMovies.this,"Login Successful!",Toast.LENGTH_SHORT).show();
             }
         });
 
