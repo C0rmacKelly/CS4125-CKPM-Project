@@ -88,22 +88,22 @@
 
         <RadioButton
             android:id="@+id/radioStandard"
-            android:layout_width="396dp"
+            android:layout_width="393dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
+            android:checked="true"
             android:drawablePadding="20dp"
-            android:hint="Standard Subscription - €5"
+            android:hint="Standard Subscription"
             android:onClick="onRadioButtonClicked"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:checked="true"/>
+            android:textColorHint="@color/black" />
 
         <RadioButton
             android:id="@+id/radioSilver"
-            android:layout_width="396dp"
+            android:layout_width="394dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -117,7 +117,7 @@
 
         <RadioButton
             android:id="@+id/radioGold"
-            android:layout_width="396dp"
+            android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/radioSilver"
             android:layout_marginStart="10dp"

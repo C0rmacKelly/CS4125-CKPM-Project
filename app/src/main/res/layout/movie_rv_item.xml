@@ -68,6 +68,15 @@
             android:text="Price"
             android:textColor="@color/black" />
 
+        <TextView
+            android:id="@+id/idTVPriceType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="PriceType"
+            android:textColor="@color/black" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

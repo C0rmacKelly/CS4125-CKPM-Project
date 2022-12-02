@@ -4,4 +4,12 @@
     <!--Essentials-->
     <string name="Back">Back</string>
     <string name="Next">Next</string>
+
+    <string-array name="priceTypes_array">
+        <item>RegularPrice</item>
+        <item>NewReleasePrice</item>
+        <item>OnSalePrice</item>
+
+    </string-array>
+
 </resources>

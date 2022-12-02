@@ -9,6 +9,7 @@ public class MovieDTO {
     private String movieGenre;
     private String movieDescription;
     private String moviePrice;
+    private String priceType;
 
     // Creating getter and setter methods
     public int getId() {
@@ -54,17 +55,24 @@ public class MovieDTO {
     public String getMoviePrice() {
         return moviePrice;
     }
+    public String getPriceType() {
+        return priceType;
+    }
 
+    public void setPriceType(String priceType) {
+        this.priceType = priceType;
+    }
     public void setMoviePrice(String moviePrice) {
         this.moviePrice = moviePrice;
     }
 
     // constructor
-    public MovieDTO(String movieTitle, String movieDuration, String movieGenre, String movieDescription, String moviePrice) {
+    public MovieDTO(String movieTitle, String movieDuration, String movieGenre, String movieDescription, String moviePrice, String priceType) {
         this.movieTitle = movieTitle;
         this.movieDuration = movieDuration;
         this.movieGenre = movieGenre;
         this.movieDescription = movieDescription;
         this.moviePrice = moviePrice;
+        this.priceType = priceType;
     }
 }

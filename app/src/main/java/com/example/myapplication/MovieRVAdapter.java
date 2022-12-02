@@ -41,6 +41,7 @@ public class MovieRVAdapter extends RecyclerView.Adapter<MovieRVAdapter.ViewHold
         holder.movieGenreTV.setText(dto.getMovieGenre());
         holder.movieDescriptionTV.setText(dto.getMovieDescription());
         holder.moviePriceTV.setText(dto.getMoviePrice());
+        holder.moviePriceType.setText(dto.getPriceType());
 
         // Add on click listener to the recycler view item.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +56,7 @@ public class MovieRVAdapter extends RecyclerView.Adapter<MovieRVAdapter.ViewHold
                 i.putExtra("genre", dto.getMovieGenre());
                 i.putExtra("description", dto.getMovieDescription());
                 i.putExtra("price", dto.getMoviePrice());
+                i.putExtra("priceType",dto.getPriceType());
 
                 // starting the activity.
                 context.startActivity(i);
@@ -71,7 +73,7 @@ public class MovieRVAdapter extends RecyclerView.Adapter<MovieRVAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         // creating variables for the text views.
-        private TextView movieTitleTV, movieDurationTV, movieGenreTV, movieDescriptionTV, moviePriceTV;
+        private TextView movieTitleTV, movieDurationTV, movieGenreTV, movieDescriptionTV, moviePriceTV, moviePriceType;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,6 +83,7 @@ public class MovieRVAdapter extends RecyclerView.Adapter<MovieRVAdapter.ViewHold
             movieGenreTV = itemView.findViewById(R.id.idTVMovieGenre);
             movieDescriptionTV = itemView.findViewById(R.id.idTVMovieDescription);
             moviePriceTV = itemView.findViewById(R.id.idTVMoviePrice);
+            moviePriceType = itemView.findViewById(R.id.idTVPriceType);
         }
     }
 }

@@ -13,8 +13,8 @@ public class MovieOptions extends AppCompatActivity {
     //declaring the variables
 
     //TextViews
-    private TextView MovieName, AgeRating,  Description, MovieDuration, MovieGenre, MoviePrice;
-    private String MovieNametxt,AgeRatingtxt,Descriptiontxt, MovieDurationtxt,MovieGenretxt,MoviePricetxt;
+    private TextView MovieName, AgeRating,  Description, MovieDuration, MovieGenre, MoviePrice, MoviePriceType;
+    private String MovieNametxt,AgeRatingtxt,Descriptiontxt, MovieDurationtxt,MovieGenretxt,MoviePricetxt, MoviePriceTypetxt;
 
 
     //Buttons
@@ -38,6 +38,7 @@ public class MovieOptions extends AppCompatActivity {
         MovieDuration =(TextView) findViewById(R.id.idTVMovieDuration);
         MovieGenre =(TextView) findViewById(R.id.idTVMovieGenre);
         MoviePrice =(TextView) findViewById(R.id.idTVMoviePrice);
+        MoviePriceType =(TextView) findViewById(R.id.idTVMoviePriceType);
 
         //buttons
         rentMovieButton = (Button) findViewById(R.id.rent_movie);
@@ -49,6 +50,8 @@ public class MovieOptions extends AppCompatActivity {
         MovieGenretxt = getIntent().getStringExtra("genre");
         Descriptiontxt = getIntent().getStringExtra("description");
         MoviePricetxt = getIntent().getStringExtra("price");
+        MoviePriceTypetxt = getIntent().getStringExtra("priceType");
+
 
 
         // setting data to edit text of the update activity.
@@ -59,6 +62,7 @@ public class MovieOptions extends AppCompatActivity {
         MovieDuration.setText(MovieDurationtxt);
         MovieGenre.setText(MovieGenretxt);
         MoviePrice.setText(MoviePricetxt);
+        MoviePriceType.setText(MoviePriceTypetxt);
 
 
 
@@ -67,10 +71,11 @@ public class MovieOptions extends AppCompatActivity {
         rentMovieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getBaseContext(), RentMovie.class);
+                Intent i = new Intent(getBaseContext(), RentDurationView.class);
                 // Passing all the values to go from this activity to another (Note: this information is being passed to the third activity, rent_activity)
                 i.putExtra("title2", MovieNametxt );
                 i.putExtra("price2", MoviePricetxt );
+                i.putExtra("priceType2", MoviePriceTypetxt);
                 startActivity(i);
             }
 

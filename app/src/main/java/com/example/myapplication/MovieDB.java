@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,7 @@ public class MovieDB extends SQLiteOpenHelper {
 
     private static final String RATING_SCORE_COL = "rating_score";
 
-
+    private static final String PRICE_TYPE_NAME_COL = "price_type_name";
 
 
 
@@ -58,13 +59,14 @@ public class MovieDB extends SQLiteOpenHelper {
                 + RENT_DURATION + " TEXT,"
                 + TOTAL_COST_COL + " TEXT,"
                 + RATING_MESSAGE_FEEDBACK_COL + " TEXT,"
-                + RATING_SCORE_COL + " TEXT)";
+                + RATING_SCORE_COL + " TEXT,"
+                + PRICE_TYPE_NAME_COL + " TEXT)";
 
         // execute query
         db.execSQL(query);
     }
 
-    public void addNewMovie(String movieTitle, String movieDuration, String movieGenre, String movieDescription, String moviePrice) {
+    public void addNewMovie(String movieTitle, String movieDuration, String movieGenre, String movieDescription, String moviePrice, String priceType) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -75,6 +77,7 @@ public class MovieDB extends SQLiteOpenHelper {
         values.put(GENRE_COL, movieGenre);
         values.put(DESCRIPTION_COL, movieDescription);
         values.put(PRICE_COL, moviePrice);
+        values.put(PRICE_TYPE_NAME_COL, priceType);
 
         db.insert(TABLE_NAME, null, values);
 
@@ -101,7 +104,8 @@ public class MovieDB extends SQLiteOpenHelper {
                         cursorMovies.getString(2),
                         cursorMovies.getString(3),
                         cursorMovies.getString(4),
-                        cursorMovies.getString(5)));
+                        cursorMovies.getString(5),
+                        cursorMovies.getString(10)));
             } while (cursorMovies.moveToNext());
             // Moving cursor to next.
         }
@@ -160,7 +164,6 @@ public class MovieDB extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
-
     // Method for deleting a movie.
     public void deleteMovie(String movieTitle) {
 
