@@ -16,14 +16,11 @@ import java.util.ArrayList;
 public class UserViewAdapter extends RecyclerView.Adapter<UserViewAdapter.ViewHolder> {
 
     private ArrayList<UserDTO> userDTOArrayList;
-    private Context context;
 
 
-    public UserViewAdapter (ArrayList<UserDTO> userDTOArrayList, Context context) {
+    public UserViewAdapter (ArrayList<UserDTO> userDTOArrayList) {
         this.userDTOArrayList = userDTOArrayList;
-        this.context = context;
     }
-
 
     @NonNull
     @Override
