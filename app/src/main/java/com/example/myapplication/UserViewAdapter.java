@@ -16,11 +16,14 @@ import java.util.ArrayList;
 public class UserViewAdapter extends RecyclerView.Adapter<UserViewAdapter.ViewHolder> {
 
     private ArrayList<UserDTO> userDTOArrayList;
+    private Context context;
 
 
-    public UserViewAdapter (ArrayList<UserDTO> userDTOArrayList) {
+    public UserViewAdapter (ArrayList<UserDTO> userDTOArrayList, Context context) {
         this.userDTOArrayList = userDTOArrayList;
+        this.context = context;
     }
+
 
     @NonNull
     @Override
@@ -40,7 +43,6 @@ public class UserViewAdapter extends RecyclerView.Adapter<UserViewAdapter.ViewHo
         holder.user_Email.setText(dto.getUserEmail());
         holder.user_Password.setText(dto.getUserPassword());
         holder.user_MembershipType.setText(dto.getUserMembershipType());
-
 
     }
 
