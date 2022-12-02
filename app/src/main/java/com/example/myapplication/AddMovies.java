@@ -3,20 +3,25 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 
-public class AddMovies extends AppCompatActivity {
+public class AddMovies extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     // Creating variables for edittext, button and dbhandler
     private EditText movieTitleEdt, movieDurationEdt, movieGenreEdt, movieDescriptionEdt, moviePriceEdt;
     private Button addMovieBtn, readMovieBtn;
     private MovieDB dbHandler;
+
+    private String priceType;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,16 @@ public class AddMovies extends AppCompatActivity {
 
         // Creating a new dbhandler class and passing our context to it.
         dbHandler = new MovieDB(AddMovies.this);
+
+        Spinner dropdown = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.priceTypes_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        dropdown.setAdapter(adapter);
+        dropdown.setOnItemSelectedListener(this);
 
         // Add on click listener for add movie button.
         addMovieBtn.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +69,7 @@ public class AddMovies extends AppCompatActivity {
                 }
 
                 // Calling addNewMovie method to add new movie to sqlite data and pass all values to it.
-                dbHandler.addNewMovie(movieTitle, movieDuration, movieGenre, movieDescription, moviePrice);
+                dbHandler.addNewMovie(movieTitle, movieDuration, movieGenre, movieDescription, moviePrice, priceType);
 
                 // After adding the data, we are displaying a toast message.
                 Toast.makeText(AddMovies.this, "Movie has been added.", Toast.LENGTH_SHORT).show();
@@ -69,10 +84,25 @@ public class AddMovies extends AppCompatActivity {
         readMovieBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // opening a new activity via a intent.
                 Intent i = new Intent(AddMovies.this, ViewMovies.class);
                 startActivity(i);
+
             }
         });
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        //this String holds the itemSelected value (PriceType)
+         priceType = parent.getItemAtPosition(position).toString();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

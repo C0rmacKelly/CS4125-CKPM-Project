@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,19 +15,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class RentMovie extends AppCompatActivity {
     //declaring the variables
     //TextViews
     private TextView MovieName;
     private TextView Total_cost;
-    //EditText
-    private EditText RentDurationEdt;
+    private TextView rentDuration;
+
     private String MovieNametxt;
-    private String pricetxt, total_costtxt;
+    private String pricetxt, total_costtxt, priceTypetxt, rentDurationtxt;
     //Buttons
     private Button checkoutbutton;
-
     //MovieDB
     private MovieDB dbHandler;
     //creating the activity
@@ -39,27 +41,45 @@ public class RentMovie extends AppCompatActivity {
 
         //TextViews
         MovieName = (TextView) findViewById(R.id.Movie_Name);
-        RentDurationEdt = (EditText) findViewById(R.id.rent_duration);
+        rentDuration = (TextView) findViewById(R.id.rent_duration);
         Total_cost = (TextView) findViewById(R.id.total_cost);
-        checkoutbutton = (Button) findViewById(R.id.checkout);
 
+        //button
+        checkoutbutton = (Button) findViewById(R.id.checkout);
 
         // initialising the dbhandler class.
         dbHandler = new MovieDB(RentMovie.this );
-        //showFullDatabase();
+
 
         // Getting data which was passed in the adapter class.
-        MovieNametxt = getIntent().getStringExtra("title2");
-        pricetxt = getIntent().getStringExtra("price2");
+        MovieNametxt = getIntent().getStringExtra("title3");
+       // pricetxt = getIntent().getStringExtra("price2");
+        priceTypetxt = getIntent().getStringExtra("priceType3");
+        rentDurationtxt = getIntent().getStringExtra("rentDuration");
 
-        double price2 = Double.parseDouble(pricetxt);
-        price2 = price2*2.02 ;
+        //business logic
+        //price of the movie that the Admin specified without charges still
+        //double priceAllocated = Double.parseDouble(pricetxt);
 
-        total_costtxt = String.valueOf(price2);
+        GetPriceFactory priceFactory = new GetPriceFactory();
 
-        // setting data to edit text of the update activity.
+        // use priceFactory to getPrice of depending on priceType
+        price p = priceFactory.getPrice(priceTypetxt);
+
+        //getting the rent duration from the edtbutton to integer
+        int daysRented = Integer.parseInt(rentDurationtxt);
+
+        //calculate Charge based on the daysRented
+        p.getCharge(daysRented);
+
+        //Calculate the total cost as per the days rented with charges applied.
+        //input total_cost to display
+        total_costtxt = String.valueOf(p.calculatePrice(daysRented));
+
+        // setting the ids with the results to show to user
         MovieName.setText(MovieNametxt);
         Total_cost.setText(total_costtxt);
+        rentDuration.setText(rentDurationtxt);
 
 
         //checkout button
@@ -68,7 +88,7 @@ public class RentMovie extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Calling the update rental method and passing all the edit text values.
-                dbHandler.updateDBwithRentalDetails(RentDurationEdt.getText().toString(), total_costtxt);
+                dbHandler.updateDBwithRentalDetails(rentDurationtxt, total_costtxt);
 
                 // displaying a toast message that the rental has been completed
                 Toast.makeText(RentMovie.this, "Movie Has been rented..", Toast.LENGTH_SHORT).show();
@@ -79,5 +99,4 @@ public class RentMovie extends AppCompatActivity {
 
         });
     }
-
 }
