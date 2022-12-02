@@ -65,4 +65,12 @@
         android:text="View Available Movies"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/idCustomersInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="View Customer Info"
+        android:textAllCaps="false" />
+
 </LinearLayout>

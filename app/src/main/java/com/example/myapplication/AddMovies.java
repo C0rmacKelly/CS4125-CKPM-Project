@@ -18,7 +18,7 @@ public class AddMovies extends AppCompatActivity implements AdapterView.OnItemSe
 
     // Creating variables for edittext, button and dbhandler
     private EditText movieTitleEdt, movieDurationEdt, movieGenreEdt, movieDescriptionEdt, moviePriceEdt;
-    private Button addMovieBtn, readMovieBtn;
+    private Button addMovieBtn, readMovieBtn, customersInfo;
     private MovieDB dbHandler;
 
     private String priceType;
@@ -36,6 +36,7 @@ public class AddMovies extends AppCompatActivity implements AdapterView.OnItemSe
         moviePriceEdt = findViewById(R.id.idEdtMoviePrice);
         addMovieBtn = findViewById(R.id.idBtnAddMovie);
         readMovieBtn = findViewById(R.id.idBtnReadMovie);
+        customersInfo = findViewById(R.id.idCustomersInfo);
 
         // Creating a new dbhandler class and passing our context to it.
         dbHandler = new MovieDB(AddMovies.this);
@@ -91,6 +92,17 @@ public class AddMovies extends AppCompatActivity implements AdapterView.OnItemSe
 
             }
         });
+
+        customersInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // opening a new activity via a intent.
+                Intent i = new Intent(AddMovies.this, ViewCustomerInfo.class);
+                startActivity(i);
+                Toast.makeText(AddMovies.this,"Login Successful!",Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 
